@@ -1,5 +1,20 @@
 #!/usr/bin/ruby
 
+# A utility to refold lines of text, preserving any indentation and comment markers.
+#
+# eg:
+#     // hello this
+#     // is some poorly indented text with a really long line after a really short line and nobody loves it.
+#   // I really wish someone would make a utility to clean it up.
+#
+# becomes:
+#     // hello this is some poorly indented text with a really long line after a
+#     // really short line and nobody loves it. I really wish someone would make
+#     // a utility to clean it up.
+#
+# The default line length is 80, that includes all the indentation and comments.
+# You can specify another length with -n <number of characters>.
+
 max_length = 80
 if ARGV[0] == "-n"
   _, length = ARGV.shift(2)
