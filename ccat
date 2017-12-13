@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#manni lovlace and monokai are all good
+style=lovelace
+
+for file in "$@"; do
+  pygmentize -O style=$style -f 256 "$file"
+done
+
