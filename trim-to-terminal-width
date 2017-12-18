@@ -1,6 +1,5 @@
 #!/bin/bash
 width="$(stty size </dev/tty | cut -d' ' -f2)"
-echo "width is $width"
 exec perl -CSAD -Mutf8 -plE 's/^((?:(?>(?:\e\[\X*?m)*)\X){'$width'}).*/$1\e[m/'
 # exec perl -CSAD -Mutf8 -plE 's/^((?:(?>(?:\e\[.*?m)*)\X))/$1:/g'
 

@@ -1,2 +1,10 @@
-#!/bin/bash
-exec tr '|\\/\*' '│╲╱├'
+#!/usr/bin/perl
+
+while (<>) {
+  my ($graph, $rest) = split /(?=[a-z0-9]{11})/, $_, 2;
+  $graph =~ s/\|/│/g;
+  $graph =~ s/\\/╲/g;
+  $graph =~ s/\//╱/g;
+  $graph =~ s/\*/├/g;
+  print $graph . $rest;
+}
